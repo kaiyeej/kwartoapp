@@ -8,15 +8,15 @@ if($type == "all"){
     $query = "";
 }else{
     if($type == "AT"){
-        $query = "WHERE status='A' AND start_date <= '$date'";
+        $query = "status='A' AND start_date <= '$date'";
     }else if($type == "DT"){
-        $query = "WHERE status='I' AND end_date <= '$date'";
+        $query = "status='I' AND end_date <= '$date'";
     }else{
-        $query = "WHERE status='$type'";
+        $query = "status='$type'";
     }
 }
 
-$fetchData = $mysqli_connect->query("SELECT * FROM tbl_reservation $query ORDER by reservation_id DESC") or die(mysqli_error());
+$fetchData = $mysqli_connect->query("SELECT * FROM tbl_reservation WHERE hotel_id='$hotel_id' $query ORDER by reservation_id DESC") or die(mysqli_error());
 
 $response['data'] = array();
 $count = 1;
