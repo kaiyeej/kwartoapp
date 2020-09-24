@@ -8,11 +8,11 @@ if($type == "all"){
     $query = "";
 }else{
     if($type == "AT"){
-        $query = "status='A' AND start_date <= '$date'";
+        $query = "AND status='A' AND start_date <= '$date'";
     }else if($type == "DT"){
-        $query = "status='I' AND end_date <= '$date'";
+        $query = "AND status='I' AND end_date <= '$date'";
     }else{
-        $query = "status='$type'";
+        $query = "AND status='$type'";
     }
 }
 
